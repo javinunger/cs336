@@ -1,0 +1,19 @@
+{
+  "name": "lab03",
+  "version": "1.0.0",
+  "description": "Lab03 for CS336",
+  "main": "lab03.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javinunger/cs336.git"
+  },
+  "author": "jbu2",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javinunger/cs336/issues"
+  },
+  "homepage": "https://github.com/javinunger/cs336#readme"
+}
