@@ -1,7 +1,7 @@
 {
-  "name": "lab03",
+  "name": "lab06",
   "version": "1.0.0",
-  "description": "Lab03 for CS336",
+  "description": "Lab06 for CS336",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
