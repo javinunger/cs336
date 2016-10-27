@@ -1,0 +1,32 @@
+<!--HTML Form for adding people to people.json-->
+<!--Created by Javin Unger for CS336, Fall 2016-->
+<!DOCTYPE form>
+<form action="/" method="post">
+	<head>
+  		<meta charset="utf-8">
+  		<title>Homework 2 - Add</title>
+ 		 	<link rel="stylesheet" href="style.css" />
+    	<script src="jquery.js"></script>
+			<script type="text/javascript" src="add-script.js"></script>
+	</head>
+	<body>
+    <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="fname" name="firstName" />
+    </div>
+    <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lname" name="lastName" />
+    </div>
+    <div>
+        <label for="birthDate">Birth Date:</label>
+        <input type="Date" id="bdate" name="birthDate" />
+    </div>
+    
+    <div class="button">
+        <button type="submit">Add this person</button>
+    </div>
+		<div class="feedback">
+		</div>
+	</body>
+</form>
