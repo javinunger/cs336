@@ -37,8 +37,5 @@
     "type": "git",
     "url": "https://github.com/javinunger/cs336.git"
   },
-  "author": "petehunt, jbu2",
-  "bugs": {
-    "url": "https://github.com/reactjs/react-tutorial/issues"
-  }
+  "author": "jbu2"
 }
