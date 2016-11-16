@@ -23,6 +23,13 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
 
+/*
+var people = {
+	22: ["Javin", 	"Unger", 	"11/11/1994"],
+	10: ["Cotter", "Koopman",	"08/12/1995"]
+}
+*/
+
 var PEOPLE_FILE = path.join(__dirname, 'data/people.json');
 var HOST = "localhost";
 var PORT = 3000;
