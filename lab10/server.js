@@ -43,7 +43,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/api/comments', function(req, res) {
-    db.collection("lab10").find({}).toArray(function(err, docs) {
+    db.collection("comments").find({}).toArray(function(err, docs) {
         if (err) throw err;
         res.json(docs);
     });
@@ -55,10 +55,10 @@ app.post('/api/comments', function(req, res) {
         author: req.body.author,
         text: req.body.text,
     };
-    db.collection("lab10").insertOne(newComment, function(err, result) {
+    db.collection("comments").insertOne(newComment, function(err, result) {
         if (err) throw err;
         var newId = result.insertedId;
-        db.collection("lab10").find({}).toArray(function(err, docs) {
+        db.collection("comments").find({}).toArray(function(err, docs) {
             if (err) throw err;
             res.json(docs);
         });
