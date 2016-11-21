@@ -4,6 +4,7 @@
   "description": "Code from the React tutorial, for CS336 Lab 12.",
   "main": "server.js",
   "dependencies": {
+    "assert": "^1.4.1",
     "autoprefixer": "^6.5.3",
     "babel-core": "^6.18.0",
     "babel-loader": "^6.2.7",
