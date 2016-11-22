@@ -16,11 +16,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-import CommentBox from './commentBox';
+import PersonBox from './personBox';
 
 import '../css/base.css';
 
 ReactDOM.render(
-  <CommentBox url="/api/comments" pollInterval={2000} />,
+  <PersonBox url="/api/people" pollInterval={2000} />,
   document.getElementById('content')
 );

@@ -12,18 +12,13 @@
  * Refactored for use with MongoDB/mLab by Javin Unger for cs336, Fall 2016
  */
 
-var db = 'mongodb://cs336:bjarne@ds011495.mlab.com:11495/jbu2-cs336';
-var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
-var MongoClient = require('mongodb').MongoClient;
 var app = express();
+var MongoClient = require('mongodb').MongoClient
 
-MongoClient.connect(db, function (err, dbConnection) {
-	if (err) throw err;
-  	db = dbConnection;
-})
+var db;
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -31,33 +26,28 @@ app.use('/', express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// Additional middleware which will set headers that we need on each request.
 app.use(function(req, res, next) {
-    // Set permissive CORS header - this allows this server to be used only as
-    // an API server in conjunction with something like webpack-dev-server.
     res.setHeader('Access-Control-Allow-Origin', '*');
-
-    // Disable caching so we'll always get the latest comments.
     res.setHeader('Cache-Control', 'no-cache');
     next();
 });
 
-app.get('/api/comments', function(req, res) {
+app.get('/api/people', function(req, res) {
     db.collection("people").find({}).toArray(function(err, docs) {
         if (err) throw err;
         res.json(docs);
     });
 });
 
-app.post('/api/comments', function(req, res) {
-    var newComment = {
+app.post('/api/people', function(req, res) {
+    var newPerson = {
         id: Date.now(),
-        author: req.body.author,
-        text: req.body.text,
+        fname: req.body.fname,
+        lname: req.body.lname,
+				bdate: req.body.bdate
     };
-    db.collection("people").insertOne(newComment, function(err, result) {
+    db.collection("people").insertOne(newPerson, function(err, result) {
         if (err) throw err;
-        var newId = result.insertedId;
         db.collection("people").find({}).toArray(function(err, docs) {
             if (err) throw err;
             res.json(docs);
@@ -65,7 +55,65 @@ app.post('/api/comments', function(req, res) {
     });
 });
 
+app.route('/person/:id')
+	.get(function (req, res) {
+		db.collection("people").find( {id: req.params.id} ).toArray(function(err, docs) {
+      if (err) throw err;
+			res.json(docs);
+		})
+	})
+	.post(function (req, res) {
+		db.collection("people").find( {id: req.params.id} ).toArray(function(err, docs) {
+	    if (err) throw err;
+			var new_id = req.params.id;
+			var newPerson = {
+				id: new_id,
+				fname: req.body.fname,
+				lname: req.body.lname,
+				bdate: req.body.bdate,
+			};
+			db.collection("people").insertOne(newPerson);
+		})
+	})
+	.delete(function (req, res) {
+		db.collection("people").find({}).toArray(function(err, docs) {
+	    if (err) throw err;
+			db.collection("people").remove( {id: new_id} );
+		})
+	});
+
+app.get('/person/:id/:property', function (req, res) {
+	db.collection("people").find({ id: req.params.id }).toArray(function(err, docs) {
+	  if (err) throw err;
+		if (req.params.property == "name")
+			res.json(docs.fname + " " + docs.lname);
+		if (req.params.property == 'years')
+			res.json(getSeniority(docs.bdate));
+		else
+			res.sendStatus(404);
+	})
+});
 
 app.listen(app.get('port'), function() {
     console.log('Server started: http://localhost:' + app.get('port') + '/');
 });
+
+// This assumes that the MongoDB password has been set as an environment variable.
+var mongoURL = 'mongodb://cs336:' +
+	       process.env.MONGO_PASSWORD +
+	       '@ds011495.mlab.com:11495/jbu2-cs336';
+MongoClient.connect(mongoURL, function(err, dbConnection) {
+    if (err) throw err;
+    db = dbConnection;
+});
+
+//Non-routing methods
+function getSeniority(dateString) {
+	var today = new Date();
+	var startDate = new Date(dateString);
+	var seniority = today.getFullYear() - startDate.getFullYear();
+	var m = today.getMonth() - startDate.getMonth();
+	if (m < 0 || (m === 0 && today.getDate() < startDate.getDate()))
+		seniority--;
+	return seniority;
+}

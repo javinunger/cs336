@@ -1,9 +1,10 @@
 {
-  "name": "Homework03",
+  "name": "Homework3",
   "version": "0.0.0",
-  "description": "Modified code from the React tutorial, for CS336 Homework03",
+  "description": "Code from the React tutorial, for CS336 Homework3.",
   "main": "server.js",
   "dependencies": {
+  	"assert": "^1.4.1",
     "babel-core": "^6.18.0",
     "babel-loader": "^6.2.7",
     "babel-preset-es2015": "^6.18.0",
