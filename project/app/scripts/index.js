@@ -15,6 +15,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+//import Container from './container';
+
 import '../css/base.css';
 
 $( "canvas" ).click(function( event ) {
@@ -26,7 +28,7 @@ $( "canvas" ).click(function( event ) {
 
 /*
 ReactDOM.render(
-  <CommentBox url="/api/coordinates" pollInterval={2000} />,
+  <Container url="/api/coordinates" pollInterval={500} />,
   document.getElementById('content')
 );
 */
