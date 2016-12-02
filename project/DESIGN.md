@@ -1,7 +1,7 @@
 #ReactJS Frontend
 Our page would be very straightforward and consist of only a few components. At the top of the page, a component box would display instructions such as "WHERE ARE YOU FROM?" Underneath that, another component box would display an image, such as a world map, where the user would click. These are components rather than hard-coded elements, so that as the user clicks, the image box and instruction box would progress through the series of questions. A button at the very bottom would allow the user to restart. A container component would also be implemented merely to contain the aforementioned three components.
 
-[[https://github.com/javinunger/cs336/blob/master/project/materials/design.png|alt=design]]
+[Design Screenshot](https://github.com/javinunger/cs336/blob/master/project/materials/design.png)
 
 #MongoDB Backend
 Collections for images, documents for clicks
