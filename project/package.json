@@ -1,7 +1,7 @@
 {
   "name": "CS336_final_project",
   "version": "0.0.0",
-  "description": "TODO",
+  "description": "Identity Quiz polls simple data from visitors and maps it to an image",
   "main": "server.js",
 "dependencies": {
     "assert": "^1.4.1",
