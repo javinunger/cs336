@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-import Buttons from './buttons';
+//import Buttons from './buttons';
 import Image from './image';
 import { API_URL, POLL_INTERVAL } from './global';
 

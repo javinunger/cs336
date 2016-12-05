@@ -16,7 +16,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Redirect, browserHistory } from 'react-router';
 
-//import Container from './container';
+import Container from './container';
 
 import '../css/base.css';
 
