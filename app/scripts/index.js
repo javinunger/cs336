@@ -14,6 +14,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, Redirect, browserHistory } from 'react-router';
 
 //import Container from './container';
 
@@ -27,8 +28,10 @@ $( "canvas" ).click(function( event ) {
 });
 
 /*
-ReactDOM.render(
-  <Container url="/api/coordinates" pollInterval={500} />,
-  document.getElementById('content')
+ReactDOM.render((
+    <Router history={browserHistory}>
+        <Route path="/" component={Container}/>
+    </Router>
+), document.getElementById('content')
 );
 */
