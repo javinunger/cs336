@@ -9,7 +9,7 @@ module.exports = React.createClass({
 	getInitialState: function() {
 		return {data: []};
 	},
-  /*handleCoordinateSubmit: function(coordinate) {
+  handleCoordinateSubmit: function(coordinate) {
   	var coordinates = this.state.data;
     coordinate.id = Date.now();
     var newCoordinates = coordinates.concat([coordinate]);
@@ -27,11 +27,12 @@ module.exports = React.createClass({
     		this.setState({data: coordinates});
         console.error(API_URL, status, errorThrown.toString());
     }.bind(this));
-	},*/
+	},
   render: function() {
   	return (
     	<div className="identityContainer">
-      	<identityImage data={this.state.data} />
+				<h1>"identityContainer render return"</h1>
+      	<identityImage data={this.state.data}/>
 				<identityButtons onCoordinateSubmit={this.handleCoordinateSubmit} />
       </div>
     );
