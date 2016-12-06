@@ -16,13 +16,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Redirect, browserHistory } from 'react-router';
 
-import Container from './container';
+import identityContainer from './container';
 
 import '../css/base.css';
 
 ReactDOM.render((
     <Router history={browserHistory}>
-        <Route path="/" component={Container}/>
+        <Route path="/" component={identityContainer}/>
     </Router>
 ), document.getElementById('content')
 );
