@@ -19,7 +19,7 @@ module.exports = React.createClass({
 	render: function() {
 		//if first time thru
 		return (
-			<form className="identityButtons" onSubmit={this.loadCommentsFromServer}>
+			<form className="buttons">
 				<input className="ui-button ui-widget ui-corner-all" type="submit" value="Show dots??" />
 			</form>
 		);
