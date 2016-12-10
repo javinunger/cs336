@@ -1,7 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 
-import identityButtons from './buttons';
+import Instruction from './instruction';
+import Buttons from './buttons';
 import Image from './image';
 import { API_URL, POLL_INTERVAL } from './global';
 
@@ -16,20 +17,15 @@ module.exports = React.createClass({
       cache: false,
     })
     .done(function(result){
+			console.log("Coordinates loaded");
     	this.setState({data: result});
-			console.log("GET request succeeded" + result);
     }.bind(this))
     .fail(function(xhr, status, errorThrown) {
     	console.error(this.props.url, status, errorThrown.toString());
     }.bind(this));
   },
-  handleShowHide: function() {
-		/*if 
-  	var coordinates = this.state.data;
-    
-    this.setState({data: coordinates});
-	*/},
 	componentDidMount: function() {
+		console.log("Component mounted");
 		this.loadCoordinatesFromServer();
 		setInterval(this.loadCoordinatesFromServer, POLL_INTERVAL);
 	},
@@ -37,7 +33,9 @@ module.exports = React.createClass({
   	return (
     	<div className="Container">
 				<h1>Identity Quiz</h1>
+				<Instruction/>
       	<Image data={this.state.data}/>
+				<Buttons/>
       </div>
     );
 	}

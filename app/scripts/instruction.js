@@ -1,13 +1,13 @@
 import React from 'react';
 import $ from 'jquery';
 
-import identityImage from './image';
+import Image from './image';
 
 module.exports = React.createClass({
 	render: function() {
-		var instruction = "kek";
+		var instruction = "Instruction place holder";
 		return (
-			<div className="identityInstruction">
+			<div className="Instruction">
 				{instruction}
 			</div>
 		);
