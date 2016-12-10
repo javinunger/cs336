@@ -33,28 +33,6 @@ app.get('/api/coordinates', function(req, res) {
 });
 
 app.post('/api/coordinates', function(req, res) {
-    fs.readFile(COORDINATES_FILE, function(err, data) {
-        if (err) {
-            console.error(err);
-            process.exit(1);
-        }
-        var coordinates = JSON.parse(data); //remove this when mongo integrated
-        var newCoordinate = {
-            x: 10,
-            y: 50
-        };
-        coordinate.push(newCoordinate);
-        fs.writeFile(COORDINATES_FILE, JSON.stringify(coordinates, null, 4), function(err) {
-            if (err) {
-                console.error(err);
-                process.exit(1);
-            }
-            res.json(coordinates);
-        });
-    });
-});
-
-app.post('/api/coordinates', function(req, res) {
     var newCoordinate = {
         x: req.body.x,
         y: req.body.y,
