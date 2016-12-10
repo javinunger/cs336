@@ -32,5 +32,5 @@ module.exports = React.createClass({
               <img id='cursor' src="http://image.flaticon.com/icons/png/128/63/63560.png"/>
           </div>
         );
-    
+    }
 });
