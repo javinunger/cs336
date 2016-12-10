@@ -16,6 +16,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Redirect, browserHistory } from 'react-router';
 import $ from "jquery";
+import { API_URL } from './global';
 
 import Container from './container';
 
@@ -30,10 +31,22 @@ ReactDOM.render((
 
 $( "canvas" ).click(function( event ) {
   var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
-  /*
-  var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
-  $( "span #first" ).text( "( event.pageX, event.pageY ) : " + pageCoords );
-  $( "span #last" ).text( "( event.clientX, event.clientY ) : " + clientCoords );
-  */
-  console.log(pageCoords);
+
+  $.ajax({
+      url: API_URL,
+      dataType: 'json',
+      type: "POST",
+      data: {
+          x: event.pageX,
+          y: event.pageY
+      }
+  })
+  .done(function(result){
+       console.log(pageCoords + ' posted to database');
+    })
+  .fail(function(xhr, status, errorThrown) {
+       console.log('AJAX POST request failed...');
+   })
+
+
 });
