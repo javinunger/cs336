@@ -17,18 +17,10 @@ module.exports = React.createClass({
      }.bind(this));
 	},
 	render: function() {
-		//if first time thru
 		return (
-			<form className="buttons">
-				<input className="ui-button ui-widget ui-corner-all" type="submit" value="Show dots??" />
+			<form className="buttonShowHide">
+				<input className="ui-button ui-widget ui-corner-all" type="submit" value="Show" />
 			</form>
 		);
-		//if done w/ first time (to see all results)
-		/*
-		return (
-			<form className="buttons" onSubmit={this.handleSubmit}>
-				<input className="ui-button ui-widget ui-corner-all" type="submit" value="Results" />
-			</form>
-		);*/
 	}
 });

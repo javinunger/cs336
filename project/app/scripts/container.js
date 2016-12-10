@@ -9,29 +9,34 @@ module.exports = React.createClass({
 	getInitialState: function() {
 		return {data: []};
 	},
-  handleCoordinateSubmit: function(coordinate) {
-  	var coordinates = this.state.data;
-    coordinate.id = Date.now();
-    var newCoordinates = coordinates.concat([coordinate]);
-    this.setState({data: newCoordinates});
-    $.ajax({
-  	  url: API_URL,
+	loadCoordinatesFromServer: function() {
+  	$.ajax({
+    	url: API_URL,
       dataType: 'json',
-      type: 'POST',
-      data: coordinate,
+      cache: false,
     })
     .done(function(result){
-  		  this.setState({data: result});
+    	this.setState({data: result});
+			console.log("GET request succeeded" + result);
     }.bind(this))
     .fail(function(xhr, status, errorThrown) {
-    		this.setState({data: coordinates});
-        console.error(API_URL, status, errorThrown.toString());
+    	console.error(this.props.url, status, errorThrown.toString());
     }.bind(this));
+  },
+  handleShowHide: function() {
+		/*if 
+  	var coordinates = this.state.data;
+    
+    this.setState({data: coordinates});
+	*/},
+	componentDidMount: function() {
+		this.loadCoordinatesFromServer();
+		setInterval(this.loadCoordinatesFromServer, POLL_INTERVAL);
 	},
   render: function() {
   	return (
     	<div className="Container">
-				<h1>Container render return</h1>
+				<h1>Identity Quiz</h1>
       	<Image data={this.state.data}/>
       </div>
     );
