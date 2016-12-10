@@ -25,7 +25,7 @@ module.exports = React.createClass({
     render: function() {
         return (
           <div className="Image">
-              <h3>image component render test</h3>
+              <h3>Image Instruction Placeholder</h3>
               <img id='imageOnCanvas' src="http://lorempixel.com/700/450/"/>
               <canvas id="imageCanvas" width="700" height="450"></canvas>
               <p>^This canvas is being rendered by the image component, which is being rendered by container component. (The image is behind the canvas! Check the console for coordinate-click output.)</p>
