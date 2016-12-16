@@ -2,16 +2,22 @@ import React from 'react';
 import $ from 'jquery';
 
 module.exports = React.createClass({
-	getInitialSate: function() {
-		return {x: 0, y: 0};
+	getInitialState: function() {
+		return {visibility: "hidden"}
 	},
 	handleShowHide: function(e) {
 		e.preventDefault();
+		if (this.state.visibility === "hidden") {
+			this.setState({visibility: "visible"});
+		} else {
+			this.setState({visibility: "hidden"});	
+		}
+		$("canvas").css({"visibility": this.state.visibility});
 	},
 	render: function() {
 		return (
 			<form className="buttons" onClick={this.handleShowHide}>
-				<input className="ui-button ui-widget ui-corner-all" type="button" value="Show" />
+				<input id="shButton" className={this.state.visibility} type="button" value="Show/Hide" />
 			</form>
 		);
 	}
