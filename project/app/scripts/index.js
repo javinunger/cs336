@@ -30,8 +30,9 @@ ReactDOM.render((
 );
 
 $( "canvas" ).click(function( event ) {
-	var offsetX = event.pageX - 32;
-	var offsetY = event.pageY - 136;
+	var canvasPos = $(this).offset();
+	var offsetX = event.pageX - canvasPos.left;
+	var offsetY = event.pageY - canvasPos.top;
   var pageCoords = "( " + offsetX + ", " + offsetY + " )";
 
   $.ajax({

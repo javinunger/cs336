@@ -41,10 +41,9 @@ module.exports = React.createClass({
   render: function() {
   	return (
     	<div className="Container">
-				<h1>Identity Quiz</h1>
 				<Instruction/>
       	<Image data={this.state.data}/>
-				<Buttons SHvalue={true}/>
+				<Buttons/>
       </div>
     );
 	}
