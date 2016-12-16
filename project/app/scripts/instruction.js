@@ -5,7 +5,7 @@ import Image from './image';
 
 module.exports = React.createClass({
 	render: function() {
-		var instruction = "Instruction place holder";
+		var instruction = "Where in the world would you most want to go?";
 		return (
 			<div className="Instruction">
 				{instruction}

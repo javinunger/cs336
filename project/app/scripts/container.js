@@ -17,15 +17,24 @@ module.exports = React.createClass({
       cache: false,
     })
     .done(function(result){
-			console.log("Coordinates loaded");
     	this.setState({data: result});
+			var canvas = document.getElementById('imageCanvas');
+			var context = canvas.getContext('2d');
+			for (var i = 0; i <result.length; i++) {
+				$.each (result, function(key, value) {
+					context.beginPath();
+					context.arc(value.x,value.y,3, 0, 2*Math.PI);
+					context.fillStyle="#FF0000";
+					context.fill();
+					context.stroke();
+				});
+			}
     }.bind(this))
     .fail(function(xhr, status, errorThrown) {
     	console.error(this.props.url, status, errorThrown.toString());
     }.bind(this));
   },
 	componentDidMount: function() {
-		console.log("Component mounted");
 		this.loadCoordinatesFromServer();
 		setInterval(this.loadCoordinatesFromServer, POLL_INTERVAL);
 	},
@@ -35,7 +44,7 @@ module.exports = React.createClass({
 				<h1>Identity Quiz</h1>
 				<Instruction/>
       	<Image data={this.state.data}/>
-				<Buttons/>
+				<Buttons SHvalue={true}/>
       </div>
     );
 	}
