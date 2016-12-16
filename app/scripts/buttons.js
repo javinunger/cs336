@@ -7,16 +7,6 @@ module.exports = React.createClass({
 	},
 	handleShowHide: function(e) {
 		e.preventDefault();
-		var theButton = ".ui-button ui-widget ui-corner-all";
-		var coordinates = this.state.data;
-	
-		/*if (".buttons:first-child").props.value*/
-		if (($theButton).props.value = "Show") $(theButton).props.value = "Hide";
-		else $(theButton).props.value = "Show";
-
-		for( var i = 0; i < result.length; i++) {
-			$(".Image").drawImage('http://lorempixel.com/5/5/',coordinates[i][1],coordinates[i][2]);
-		}
 	},
 	render: function() {
 		return (

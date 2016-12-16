@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Identity Quiz polls simple data from visitors and maps it to an image",
   "main": "server.js",
-"dependencies": {
+  "dependencies": {
     "assert": "^1.4.1",
     "autoprefixer": "^6.5.3",
     "babel-core": "^6.18.0",

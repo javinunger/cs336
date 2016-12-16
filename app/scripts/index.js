@@ -30,15 +30,17 @@ ReactDOM.render((
 );
 
 $( "canvas" ).click(function( event ) {
-  var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
+	var offsetX = event.pageX - 32;
+	var offsetY = event.pageY - 136;
+  var pageCoords = "( " + offsetX + ", " + offsetY + " )";
 
   $.ajax({
       url: API_URL,
       dataType: 'json',
-      type: "POST",
+      type: 'POST',
       data: {
-          x: event.pageX,
-          y: event.pageY
+          x: offsetX,
+          y: offsetY
       }
   })
   .done(function(result){
