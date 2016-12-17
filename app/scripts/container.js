@@ -32,7 +32,7 @@ module.exports = React.createClass({
 			$.each (result, function(key, value) {
 				context.beginPath();
 				context.arc(value.x,value.y,3, 0, 2*Math.PI);
-				context.fillStyle="#FF0000";
+				context.fillStyle="#f08080";
 				context.fill();
 				context.stroke();
 			});
