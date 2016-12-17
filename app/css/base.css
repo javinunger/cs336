@@ -10,7 +10,7 @@ body {
 }
 
 canvas {
-	border:0px solid #abcdef;
+	border: 0px;
 	position: relative;
 	z-index: 3;
 	visibility: hidden;
