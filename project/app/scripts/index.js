@@ -29,10 +29,13 @@ ReactDOM.render((
 ), document.getElementById('content')
 );
 
+/* Function that handles users' clicks on the canvas.
+ * When the canvas is clicked, the coordinates of the click are calculated and posted to the database.
+ */
 $( "canvas" ).click(function( event ) {
-	var canvasPos = $(this).offset();
-	var offsetX = event.pageX - canvasPos.left;
-	var offsetY = event.pageY - canvasPos.top;
+  var canvasPos = $(this).offset();
+  var offsetX = event.pageX - canvasPos.left;
+  var offsetY = event.pageY - canvasPos.top;
   var pageCoords = "( " + offsetX + ", " + offsetY + " )";
 
   $.ajax({
@@ -50,6 +53,4 @@ $( "canvas" ).click(function( event ) {
   .fail(function(xhr, status, errorThrown) {
        console.log('AJAX POST request failed...');
    })
-
-
 });
