@@ -4,6 +4,7 @@
  * Created and adapted by jbu2 and cjk45 for CS336, Fall 2016
  */
 
+//Usual imports...
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -25,6 +26,7 @@ app.use(function(req, res, next) {
     next();
 });
 
+//Pulls all coordinates from MongoDB
 app.get('/api/coordinates', function(req, res) {
     db.collection("coordinates").find({}).toArray(function(err, docs) {
         if (err) throw err;
@@ -32,6 +34,7 @@ app.get('/api/coordinates', function(req, res) {
     });
 });
 
+//Post coordinates to the database collection as a document containing an x and a y
 app.post('/api/coordinates', function(req, res) {
     var newCoordinate = {
         x: req.body.x,
@@ -54,6 +57,9 @@ app.listen(app.get('port'), function() {
     console.log('Server started: http://localhost:' + app.get('port') + '/');
 });
 
+/* Variable for storing URL of database connection
+* NOTE: must export MONGO_PASSWORD=b***** (the usual class password) before npm start
+*/
 var mongoURL = 'mongodb://cs336:' +
                process.env.MONGO_PASSWORD +
                '@ds011495.mlab.com:11495/jbu2-cs336';
