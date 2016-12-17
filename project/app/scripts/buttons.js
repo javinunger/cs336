@@ -1,3 +1,10 @@
+/* React component for the button(s)
+ * 12/19 - Renders a show/hide button that will toggle the visibility of the canvas, effectively hiding the coordinate points
+ * drawn by the container component
+ *
+ * Written by Cotter Koopman and Javin Unger for CS336, Fall 2016
+ */
+
 import React from 'react';
 import $ from 'jquery';
 
