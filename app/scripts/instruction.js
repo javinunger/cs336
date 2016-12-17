@@ -10,7 +10,7 @@ import $ from 'jquery';
 
 module.exports = React.createClass({
 	render: function() {
-		var instruction = "Where in the world would you most want to go?";
+		var instruction = "Where do you want to travel?";
 		return (
 			<div className="Instruction">
 				{instruction}
